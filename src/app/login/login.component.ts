@@ -1,4 +1,5 @@
 import { Component, OnInit } from '@angular/core';
+import { FormsModule } from '@angular/forms';
 
 @Component({
   selector: 'app-login',
@@ -7,9 +8,16 @@ import { Component, OnInit } from '@angular/core';
 })
 export class LoginComponent implements OnInit {
 
+  administrator: string;
+  password: string;
+
   constructor() { }
 
   ngOnInit(): void {
+  }
+
+  loginSubmit() {
+    alert("Admin: " + this.administrator + "\nPass: " + this.password);
   }
 
 }

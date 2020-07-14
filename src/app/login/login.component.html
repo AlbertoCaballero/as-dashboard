@@ -1,9 +1,9 @@
 <div class="login-container">
-    <div class="login">
+    <form name="login-form" class="login" (submit)="loginSubmit()">
         <h1>Restricted Access</h1>
-        <input type="text" placeholder="Administrator" class="input">
-        <input type="password" placeholder="Password" class="input">
+        <input [(ngModel)]="administrator" type="text" placeholder="Administrator" class="input" name="admin-name" required>
+        <input [(ngModel)]="password" type="password" placeholder="Password" class="input" name="admin-pass" required>
         <br>
-        <input type="button" value="Login" class="button">
-    </div>
+        <input type="submit" value="Login" class="button">
+    </form>
 </div>
