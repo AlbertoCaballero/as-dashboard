@@ -8,7 +8,7 @@
         color: white;
         text-align: center;
         padding-top: 35px;
-        padding-bottom: 150px;
+        padding-bottom: 250px;
         text-transform: uppercase;
         letter-spacing: 10px;
         line-height: 40px;
@@ -36,5 +36,27 @@
     .active {
         background-color: white;
         color: black;
+    }
+
+    .button-container {
+        width: 100%;
+        text-align: center;
+        position: absolute;
+        bottom: 25px;
+
+        input {
+            width: 80%;
+            padding-top: 10px;
+            padding-bottom: 10px;
+            text-transform: uppercase;
+            color: white;
+            border-width: 0;
+            border-style: none;
+            background-color: rgb(29, 12, 184);
+
+            &:hover {
+                cursor: pointer;
+            }
+        }
     }
 }
