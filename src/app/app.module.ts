@@ -7,6 +7,7 @@ import { DashComponent } from './dash/dash.component';
 import { QuestionsComponent } from './questions/questions.component';
 import { MuseumsComponent } from './museums/museums.component';
 import { UsersComponent } from './users/users.component';
+import { LoginComponent } from './login/login.component';
 
 @NgModule({
   declarations: [
@@ -14,7 +15,8 @@ import { UsersComponent } from './users/users.component';
     DashComponent,
     QuestionsComponent,
     MuseumsComponent,
-    UsersComponent
+    UsersComponent,
+    LoginComponent
   ],
   imports: [
     BrowserModule,
