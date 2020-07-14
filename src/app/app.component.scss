@@ -1,0 +1,40 @@
+.nav {
+    width: 20vw;
+    height: 100vh;
+    background-color: black;
+    position: fixed;
+
+    h1 {
+        color: white;
+        text-align: center;
+        padding-top: 35px;
+        padding-bottom: 150px;
+        text-transform: uppercase;
+        letter-spacing: 10px;
+        line-height: 40px;
+    }
+
+    a {
+        text-decoration: none;
+        color: white;
+        text-align: center;
+        text-transform: uppercase;
+
+        display: block;
+        width: 100%;
+        padding-top: 20px;
+        padding-bottom: 20px;
+        transition: 0.3s;
+
+        &:hover {
+            background-color: white;
+            color: black;
+            transition: 0.3s;
+        }
+    }
+
+    .active {
+        background-color: white;
+        color: black;
+    }
+}
