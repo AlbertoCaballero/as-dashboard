@@ -1,27 +1,30 @@
 .nav {
-    width: 20vw;
+    width: 18vw;
     height: 100vh;
     background-color: black;
     position: fixed;
 
     h1 {
         color: white;
-        text-align: center;
+        text-align: left;
+        padding-left: 10%;
         padding-top: 35px;
         padding-bottom: 250px;
         text-transform: uppercase;
         letter-spacing: 10px;
         line-height: 40px;
+        font-size: large;
     }
 
     a {
         text-decoration: none;
         color: white;
-        text-align: center;
+        text-align: left;
+        padding-left: 15%;
         text-transform: uppercase;
 
         display: block;
-        width: 100%;
+        width: 85%;
         padding-top: 20px;
         padding-bottom: 20px;
         transition: 0.3s;
@@ -45,7 +48,7 @@
         bottom: 25px;
 
         input {
-            width: 80%;
+            width: 85%;
             padding-top: 10px;
             padding-bottom: 10px;
             text-transform: uppercase;
