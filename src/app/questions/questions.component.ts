@@ -7,7 +7,21 @@ import { Component, OnInit } from '@angular/core';
 })
 export class QuestionsComponent implements OnInit {
 
-  constructor() { }
+  questions = [
+    { id: "adfhu9hadsfh89", question: "Where was it painted?", prediction: "location", user: "Alberto Caballero", piece: "Starry Night" },
+    { id: "8ajhdso899adf8", question: "Why is it dreamy?", prediction: "history", user: "Alberto Caballero", piece: "Starry Night" },
+    { id: "adfhu9hadsfh89", question: "Where was it painted?", prediction: "location", user: "Alberto Caballero", piece: "Starry Night" },
+    { id: "8ajhdso899adf8", question: "Why is it dreamy?", prediction: "history", user: "Alberto Caballero", piece: "Starry Night" },
+    { id: "adfhu9hadsfh89", question: "Where was it painted?", prediction: "location", user: "Alberto Caballero", piece: "Starry Night" },
+    { id: "8ajhdso899adf8", question: "Why is it dreamy?", prediction: "history", user: "Alberto Caballero", piece: "Starry Night" },
+    { id: "adfhu9hadsfh89", question: "Where was it painted?", prediction: "location", user: "Alberto Caballero", piece: "Starry Night" },
+    { id: "8ajhdso899adf8", question: "Why is it dreamy?", prediction: "history", user: "Alberto Caballero", piece: "Starry Night" },
+    { id: "adfhu9hadsfh89", question: "Where was it painted?", prediction: "location", user: "Alberto Caballero", piece: "Starry Night" },
+    { id: "8ajhdso899adf8", question: "Why is it dreamy?", prediction: "history", user: "Alberto Caballero", piece: "Starry Night" },
+    { id: "adfhu9hadsfh89", question: "Where was it painted?", prediction: "location", user: "Alberto Caballero", piece: "Starry Night" }
+  ];
+
+  constructor() {}
 
   ngOnInit(): void {
   }
