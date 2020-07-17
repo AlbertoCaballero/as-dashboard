@@ -1,15 +1,9 @@
 import { Injectable } from '@angular/core';
 import { Router } from '@angular/router';
-import { auth } from 'firebase/app';
-import { AngularFireAuth } from '@angular/fire/auth';
-import {
-  AngularFirestore,
-  AngularFirestoreDocument
-} from '@angular/fire/firestore';
 import { Observable, of } from 'rxjs';
-import { switchMap } from 'rxjs/operators';
 import { environment } from 'src/environments/environment';
 import * as firebase from 'firebase';
+import { StateService } from './state.service';
 
 @Injectable({
   providedIn: 'root'
@@ -17,9 +11,10 @@ import * as firebase from 'firebase';
 export class AuthService {
   
   user$: Observable<any>;
+  access: boolean = false;
 
 
-  constructor(private router: Router) {
+  constructor(private router: Router, private state: StateService) {
     firebase.initializeApp(environment.fireconf);
     var db = firebase.firestore();
   }
@@ -32,12 +27,15 @@ export class AuthService {
         alert('Wrong Password');
       } else if(errorMessage == 'auth/argument-error') {
         alert('Unvalid email format');
+      } else {
+        alert(error.message);
       }
-      alert(error.message);
+      context.state.changeAccessPermission(true);
     })
     .then(function (success){
       console.log(success);
       context.router.navigate(['/dash']);
+      context.state.changeAccessPermission(true);
     })
   }
 
