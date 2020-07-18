@@ -33,7 +33,6 @@ export class AuthService {
       context.state.changeAccessPermission(true);
     })
     .then(function (success: any) {
-      console.log(success);
       context.router.navigate(['/profile']);
       context.state.changeAccessPermission(true);
       context.state.changeUser({

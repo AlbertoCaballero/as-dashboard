@@ -1,0 +1,17 @@
+{
+  "hosting": {
+    "site": "art-speaking-dashboard",
+    "public": "./dist/as-dashboard/",
+    "ignore": [
+      "firebase.json",
+      "**/.*",
+      "**/node_modules/**"
+    ],
+    "rewrites": [
+      {
+        "source": "**",
+        "destination": "/index.html"
+      }
+    ]
+  }
+}
