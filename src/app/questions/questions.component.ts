@@ -40,7 +40,21 @@ export class QuestionsComponent implements OnInit {
       q.user = doc.payload.get("user");
       q.museum = doc.payload.get("museum");
       q.piece = doc.payload.get("piece");
+      q = this.getQuestionData(q);
     })
+    return q;
+  }
+
+  getQuestionData(q: Question) {
+    this.content.readDocument("users", q.user).subscribe(doc => {
+      q.user = doc.payload.get("name");
+    });
+    this.content.readDocument("museums", q.museum).subscribe(doc => {
+      q.museum = doc.payload.get("name");
+    });
+    this.content.readDocument("pieces", q.piece).subscribe(doc => {
+      q.piece = doc.payload.get("title");
+    });
     return q;
   }
 }
