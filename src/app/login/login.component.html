@@ -6,10 +6,4 @@
         <br>
         <input type="submit" value="Login" class="button">
     </form>
-    <h3 *ngIf="auth.user$ | async as user; else login">
-        Successful Login {{ user.email }}
-    </h3>
-    <ng-template #login>
-        <button (click)="auth.signOut()">Log Out</button>
-    </ng-template>
 </div>

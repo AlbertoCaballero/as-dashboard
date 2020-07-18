@@ -4,11 +4,11 @@
 <table class="question-table">
     <th class="i">Id</th>
     <th class="q">Question</th>
-    <th class="u">User</th>
-    <th class="p">Piece</th>
+    <th class="u">UserId</th>
+    <th class="p">PieceId</th>
 
     <tr *ngFor="let q of questions">
-        <td>{{ q.payload.doc.pa.path.segments[6] }}</td>
+        <td>{{ q.id }}</td>
         <td>{{ q.question }}</td>
         <td>{{ q.user }}</td>
         <td>{{ q.piece }}</td>
