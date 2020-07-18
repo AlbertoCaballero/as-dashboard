@@ -9,7 +9,7 @@ import { StateService } from './state.service';
   providedIn: 'root'
 })
 export class AuthService {
-  
+
   user$: Observable<any>;
   access: boolean = false;
 
@@ -25,28 +25,34 @@ export class AuthService {
       var errorMessage = error.message;
       if (errorCode == 'auth/wrong-password') {
         alert('Wrong Password');
-      } else if(errorMessage == 'auth/argument-error') {
+      } else if (errorMessage == 'auth/argument-error') {
         alert('Unvalid email format');
       } else {
         alert(error.message);
       }
       context.state.changeAccessPermission(true);
     })
-    .then(function (success: any) {
-      context.router.navigate(['/profile']);
-      context.state.changeAccessPermission(true);
-      context.state.changeUser({
-        name: success.user.name,
-        email: success.user.email,
-        id: success.user.uid,
-        last: success.user.metadata.lastSignInTime,
-        creation: success.user.metadata.creationTime
-      });
-    })
+      .then(function (success: any) {
+        if (success.user.name != '') {
+          context.router.navigate(['/profile']);
+          context.state.changeAccessPermission(true);
+          context.state.changeUser({
+            name: success.user.name,
+            email: success.user.email,
+            id: success.user.uid,
+            last: success.user.metadata.lastSignInTime,
+            creation: success.user.metadata.creationTime
+          });
+        } else {
+          alert("Login error");
+          context.router.navigate(['/login']);
+          context.state.changeAccessPermission(false);
+        }
+      })
   }
 
   async signOut() {
-    if(this.state.currentAccessPermission) {
+    if (this.state.currentAccessPermission) {
       alert('Login out');
       this.state.changeAccessPermission(false);
     } else {

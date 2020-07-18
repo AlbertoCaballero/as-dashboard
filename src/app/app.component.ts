@@ -10,8 +10,9 @@ import { Question } from './_models/Question';
 })
 export class AppComponent {
   title = 'Art Speaking Dashboard';
-  user: User;
   questions: Question[] = [];
+  user: User;
+  access: boolean;
 
   constructor(private state: StateService) {
     state.currentUser.subscribe(user => {
@@ -19,6 +20,9 @@ export class AppComponent {
     });
     state.currentQuestions.subscribe(questions => {
       this.questions = questions;
+    })
+    state.currentAccessPermission.subscribe(access => {
+      this.access = access;
     })
   }
 
