@@ -1,6 +1,7 @@
 import { Component, OnInit } from '@angular/core';
 import { ContentService } from '../_services/content.service';
 import { Question } from '../_models/Question';
+import { StateService } from '../_services/state.service';
 
 @Component({
   selector: 'app-questions',
@@ -12,13 +13,17 @@ export class QuestionsComponent implements OnInit {
   questions: Question[] = [];
   quest: any;
   ids = [];
-   
 
-  constructor(private content: ContentService) {}
+
+  constructor(private content: ContentService, private state: StateService) {
+    state.currentQuestions.subscribe(questions => {
+      this.questions = questions;
+    });
+  }
 
   ngOnInit(): void {
     this.content.getAllQuestionsObjects().subscribe(quest => {
-      this.quest= quest;
+      this.quest = quest;
       this.setQuestions(this.quest);
     });
   }
@@ -27,9 +32,12 @@ export class QuestionsComponent implements OnInit {
     for (let q of qs) {
       this.ids.push(q.payload.doc.pa.path.segments[6])
     }
-    for(var id of this.ids) {
-      this.questions.push(this.getQuestion(id));
+    let q: Question[] = [];
+    for (var id of this.ids) {
+      q.push(this.getQuestion(id));
     }
+
+    this.state.changeQuestions(q);
   }
 
   getQuestion(id: string) {
@@ -56,5 +64,19 @@ export class QuestionsComponent implements OnInit {
       q.piece = doc.payload.get("title");
     });
     return q;
+  }
+
+  jsonToCsv(subject) {
+    var json = subject.items
+    var fields = Object.keys(json[0])
+    var replacer = function (key, value) { return value === null ? '' : value }
+    var csv = json.map(function (row) {
+      return fields.map(function (fieldName) {
+        return JSON.stringify(row[fieldName], replacer)
+      }).join(',')
+    })
+    csv.unshift(fields.join(',')) // add header column
+    csv = csv.join('\r\n');
+    console.log(csv)
   }
 }
