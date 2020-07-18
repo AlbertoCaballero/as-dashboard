@@ -1,8 +1,8 @@
 .login-container {
     background-color: white;
     text-align: center;
-    margin-left: 30%;
-    margin-right: 30%;
+    margin-left: 35%;
+    margin-right: 35%;
     margin-top: 15%;
     padding: 40px;
     box-shadow: 3px 3px 10px 0px rgba(0,0,0,0.35);
@@ -44,4 +44,14 @@
             transition: 0.3s;
         }
     }
+}
+
+.login-protector {
+    position: fixed;
+    z-index: 15;
+    background-color: white;
+    width: 100vw;
+    height: 100vh;
+    margin-left: -20vw;
+    margin-top: -40px;
 }

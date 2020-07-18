@@ -1,9 +1,13 @@
-<div class="login-container">
-    <form name="login-form" class="login" (submit)="loginSubmit()">
-        <h1>Restricted Access</h1>
-        <input [(ngModel)]="administrator" type="text" placeholder="Administrator" class="input" name="admin-name" required>
-        <input [(ngModel)]="password" type="password" placeholder="Password" class="input" name="admin-pass" required>
-        <br>
-        <input type="submit" value="Login" class="button">
-    </form>
+<div class="login-protector">
+    <div class="login-container">
+        <form name="login-form" class="login" (submit)="loginSubmit()">
+            <h1>Restricted Access</h1>
+            <input [(ngModel)]="administrator" type="text" placeholder="Administrator" class="input" name="admin-name"
+                required>
+            <input [(ngModel)]="password" type="password" placeholder="Password" class="input" name="admin-pass"
+                required>
+            <br>
+            <input type="submit" value="Login" class="button">
+        </form>
+    </div>
 </div>
