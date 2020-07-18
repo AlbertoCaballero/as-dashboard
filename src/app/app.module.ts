@@ -13,6 +13,7 @@ import { QuestionsComponent } from './questions/questions.component';
 import { MuseumsComponent } from './museums/museums.component';
 import { UsersComponent } from './users/users.component';
 import { LoginComponent } from './login/login.component';
+import { ProfileComponent } from './profile/profile.component';
 
 @NgModule({
   declarations: [
@@ -21,7 +22,8 @@ import { LoginComponent } from './login/login.component';
     QuestionsComponent,
     MuseumsComponent,
     UsersComponent,
-    LoginComponent
+    LoginComponent,
+    ProfileComponent
   ],
   imports: [
     BrowserModule,

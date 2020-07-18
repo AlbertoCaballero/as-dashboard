@@ -21,8 +21,6 @@ export class LoginComponent implements OnInit {
   }
 
   loginSubmit() {
-    // alert("Admin: " + this.administrator + "\nPass: " + this.password);
     this.auth.signInEmailPassword(this.administrator, this.password, this);
   }
-
 }

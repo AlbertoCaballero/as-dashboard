@@ -32,15 +32,27 @@ export class AuthService {
       }
       context.state.changeAccessPermission(true);
     })
-    .then(function (success){
+    .then(function (success: any) {
       console.log(success);
-      context.router.navigate(['/dash']);
+      context.router.navigate(['/questions']);
       context.state.changeAccessPermission(true);
+      context.state.changeUser({
+        name: success.user.name,
+        email: success.user.email,
+        id: success.user.uid,
+        last: success.user.metadata.lastSignInTime,
+        creation: success.user.metadata.creationTime
+      });
     })
   }
 
   async signOut() {
-    alert("Login out");
+    if(this.state.currentAccessPermission) {
+      alert('Login out');
+      this.state.changeAccessPermission(false);
+    } else {
+      alert('No active session');
+    }
   }
 
   public createEmailPassword(email: string, password: string) {

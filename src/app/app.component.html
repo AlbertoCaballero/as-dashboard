@@ -1,11 +1,13 @@
 <nav class="nav">
-  <h1>Art Speaking<br>Dashboard</h1>
+  <h1>Art Speaking<br>Dashboard</h1><br>
 
   <ul>
     <a routerLink="dash" routerLinkActive="active">Dashboard</a>
     <a routerLink="questions" routerLinkActive="active">Questions</a>
     <a routerLink="museums" routerLinkActive="active">Museums</a>
     <a routerLink="users" routerLinkActive="active">Users</a>
+    <br><br><br><br><br>
+    <a *ngIf="user.email != null" routerLink="profile" routerLinkActive="active">{{ user.email }}</a>
   </ul>
 
   <div class="button-container">
