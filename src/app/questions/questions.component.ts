@@ -1,4 +1,5 @@
 import { Component, OnInit } from '@angular/core';
+import { ContentService } from '../_services/content.service';
 
 @Component({
   selector: 'app-questions',
@@ -7,14 +8,15 @@ import { Component, OnInit } from '@angular/core';
 })
 export class QuestionsComponent implements OnInit {
 
-  questions = [
-    { id: "adfhu9hadsfh89", question: "Where was it painted?", prediction: "location", user: "Alberto Caballero", piece: "Starry Night" },
-    { id: "8ajhdso899adf8", question: "Why is it dreamy?", prediction: "history", user: "Alberto Caballero", piece: "Starry Night" }
-  ];
+  questions: any;
+   
 
-  constructor() {}
+  constructor(private content: ContentService) {}
 
   ngOnInit(): void {
+    this.content.getAllQuestionsObjects().subscribe(questions => {
+      this.questions = questions;
+      console.log(this.questions);
+    });
   }
-
 }

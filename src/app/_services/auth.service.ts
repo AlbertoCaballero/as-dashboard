@@ -34,7 +34,7 @@ export class AuthService {
     })
     .then(function (success: any) {
       console.log(success);
-      context.router.navigate(['/questions']);
+      context.router.navigate(['/profile']);
       context.state.changeAccessPermission(true);
       context.state.changeUser({
         name: success.user.name,
