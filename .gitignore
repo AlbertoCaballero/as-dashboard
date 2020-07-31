@@ -2,6 +2,7 @@
 
 #Firebase config
 .firebase
+.firebase/*
 
 # compiled output
 /dist
@@ -47,4 +48,3 @@ testem.log
 # System Files
 .DS_Store
 Thumbs.db
-.firebase/hosting.ZGlzdFxhcy1kYXNoYm9hcmQ.cache

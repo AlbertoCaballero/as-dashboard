@@ -23,12 +23,14 @@ export class QuestionsComponent implements OnInit {
 
   ngOnInit(): void {
     this.content.getAllQuestionsObjects().subscribe(quest => {
+      this.quest = null;
       this.quest = quest;
       this.setQuestions(this.quest);
     });
   }
 
   setQuestions(qs) {
+    this.ids = [];
     for (let q of qs) {
       this.ids.push(q.payload.doc.pa.path.segments[6])
     }
@@ -77,6 +79,5 @@ export class QuestionsComponent implements OnInit {
     })
     csv.unshift(fields.join(',')) // add header column
     csv = csv.join('\r\n');
-    console.log(csv)
   }
 }
