@@ -2,7 +2,7 @@ import { Injectable } from '@angular/core';
 import { Router } from '@angular/router';
 import { Observable, of } from 'rxjs';
 import { environment } from 'src/environments/environment';
-import * as firebase from 'firebase';
+import { initializeApp, firestore, auth } from 'firebase';
 import { StateService } from './state.service';
 
 @Injectable({
@@ -15,12 +15,12 @@ export class AuthService {
 
 
   constructor(private router: Router, private state: StateService) {
-    firebase.initializeApp(environment.fireconf);
-    var db = firebase.firestore();
+    initializeApp(environment.fireconf);
+    var db = firestore();
   }
 
   public signInEmailPassword(email: string, password: string, context: any) {
-    firebase.auth().signInWithEmailAndPassword(email, password).catch(function (error) {
+    auth().signInWithEmailAndPassword(email, password).catch(function (error) {
       var errorCode = error.code;
       var errorMessage = error.message;
       if (errorCode == 'auth/wrong-password') {
@@ -61,7 +61,7 @@ export class AuthService {
   }
 
   public createEmailPassword(email: string, password: string) {
-    firebase.auth().createUserWithEmailAndPassword(email, password).catch(function (error) {
+    auth().createUserWithEmailAndPassword(email, password).catch(function (error) {
       // Handle Errors here.
       var errorCode = error.code;
       var errorMessage = error.message;
