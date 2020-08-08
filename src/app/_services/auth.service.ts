@@ -13,7 +13,6 @@ export class AuthService {
   user$: Observable<any>;
   access: boolean = false;
 
-
   constructor(private router: Router, private state: StateService) {
     initializeApp(environment.fireconf);
     var db = firestore();
@@ -62,10 +61,8 @@ export class AuthService {
 
   public createEmailPassword(email: string, password: string) {
     auth().createUserWithEmailAndPassword(email, password).catch(function (error) {
-      // Handle Errors here.
       var errorCode = error.code;
       var errorMessage = error.message;
-
       alert(errorMessage);
     });
   }

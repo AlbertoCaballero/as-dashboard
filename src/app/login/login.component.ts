@@ -12,13 +12,11 @@ export class LoginComponent implements OnInit {
 
   administrator: string;
   password: string;
-
   userEmail: string;
 
   constructor(public auth: AuthService, private router: Router, private state: StateService) { }
 
-  ngOnInit(): void {
-  }
+  ngOnInit(): void {}
 
   loginSubmit() {
     this.auth.signInEmailPassword(this.administrator, this.password, this);

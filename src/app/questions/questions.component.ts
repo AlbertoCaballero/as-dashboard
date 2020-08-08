@@ -8,12 +8,12 @@ import { StateService } from '../_services/state.service';
   templateUrl: './questions.component.html',
   styleUrls: ['./questions.component.scss']
 })
+
 export class QuestionsComponent implements OnInit {
 
   questions: Question[] = [];
   quest: any;
   ids = [];
-
 
   constructor(private content: ContentService, private state: StateService) {
     state.currentQuestions.subscribe(questions => {
@@ -38,7 +38,6 @@ export class QuestionsComponent implements OnInit {
     for (var id of this.ids) {
       q.push(this.getQuestion(id));
     }
-
     this.state.changeQuestions(q);
   }
 
