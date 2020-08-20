@@ -20,4 +20,12 @@ export class ContentService {
   readDocument(collection: string, id: string) {
     return this.firestore.collection(collection).doc(id).snapshotChanges();
   }
+
+  updateDocument(collection: string, id: string, document: any) {
+    this.firestore.doc(collection+'/'+id).update(document);
+  }
+
+  deleteDocument(collection: string, id: string, document: any) {
+    this.firestore.doc(collection+'/'+id).delete();
+  }
 }
