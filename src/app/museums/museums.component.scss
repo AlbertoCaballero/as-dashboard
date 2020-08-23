@@ -1,0 +1,43 @@
+.museum-card {
+    width: 20vw;
+    height: 20vw;
+    box-shadow: grey 0px 0px 10px;
+    padding: 15px;
+    text-align: center;
+
+    .miniature {
+        background-image: url(https://divisare-res.cloudinary.com/images/c_limit,f_auto,h_2000,q_auto,w_3000/v1478093759/sesgyv8ix4jmyizhuo9x/david-chipperfield-architects-rory-gardiner-museo-jumex.jpg);
+        background-size: cover;
+        width: 100%;
+        height: 80%;
+        margin-top: 10px;
+        margin-bottom: 10px;
+        border-width: 0;
+    }
+
+    .edit, .delete {
+        width: 45%;
+        background-color: white;
+        border-width: 1px;
+        border-color: black;
+        color: black;
+        height: 35px;
+        cursor: pointer;
+        transition: 0.3s;
+    }
+
+    .delete {
+        background-color: white;
+        border-width: 1px;
+        border-color: red;
+        margin-left: 10%;
+        color: red;
+
+        &:hover {
+            background-color: red;
+            border-color: red;
+            color: white;
+            transition: 0.3s;
+        }
+    }
+}
