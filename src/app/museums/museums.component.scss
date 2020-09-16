@@ -18,16 +18,23 @@
     .edit, .delete {
         width: 45%;
         background-color: white;
-        border-width: 1px;
-        border-color: black;
         color: black;
         height: 35px;
         cursor: pointer;
         transition: 0.3s;
     }
 
+    .edit {
+        border-width: 1px;
+        border-color: black;
+        &:hover {
+            background-color: black;
+            color: white;
+            transition: 0.3s;
+        }
+    }
+
     .delete {
-        background-color: white;
         border-width: 1px;
         border-color: red;
         margin-left: 10%;
